@@ -19,6 +19,7 @@ import android.view.View;
 import android.widget.ImageView;
 
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.io.InputStream;
 
 public class MainActivity extends AppCompatActivity {
@@ -90,7 +91,11 @@ public class MainActivity extends AppCompatActivity {
 
             img_view.setImageBitmap(image);
 
+            in.close();
+
         } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }
